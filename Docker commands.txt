@@ -1,0 +1,32 @@
+root@ip-172-31-88-243:~/images/nano# docker build -t nanoimg .
+[+] Building 0.2s (10/10) FINISHED                                                                                                                                               docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                                       0.0s
+ => => transferring dockerfile: 349B                                                                                                                                                       0.0s
+ => [internal] load .dockerignore                                                                                                                                                          0.0s
+ => => transferring context: 2B                                                                                                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                                                                           0.1s
+ => [1/5] FROM docker.io/library/ubuntu:latest@sha256:0bced47fffa3361afa981854fcabcd4577cd43cebbb808cea2b1f33a3dd7f508                                                                     0.0s
+ => [internal] load build context                                                                                                                                                          0.0s
+ => => transferring context: 35B                                                                                                                                                           0.0s
+ => CACHED [2/5] RUN apt update && apt install git -y                                                                                                                                      0.0s
+ => CACHED [3/5] RUN apt install apache2 -y                                                                                                                                                0.0s
+ => CACHED [4/5] WORKDIR /var/www/html                                                                                                                                                     0.0s
+ => CACHED [5/5] ADD nano.tar.gz /var/www/html                                                                                                                                             0.0s
+ => exporting to image                                                                                                                                                                     0.0s
+ => => exporting layers                                                                                                                                                                    0.0s
+ => => writing image sha256:b9deab9a0cd0ab44505fb1e725c02f7797ff37925cffc748f5f042bf66cdbab7                                                                                               0.0s
+ => => naming to docker.io/library/nanoimg                                                                                                                                                 0.0s
+root@ip-172-31-88-243:~/images/nano# docker run -d --name nanoweb -p 7080:80 nanoimg
+4aaec2fbffcad7993e97d05f1167d1b951bd67e8d1e15080c8ff51245fa64df7
+root@ip-172-31-88-243:~/images/nano# docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+4aaec2fbffca   nanoimg   "/usr/sbin/apache2ct…"   7 seconds ago   Up 5 seconds   0.0.0.0:7080->80/tcp, :::7080->80/tcp   nanoweb
+root@ip-172-31-88-243:~/images/nano# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED             SIZE
+nanoimg       latest    b9deab9a0cd0   About an hour ago   256MB
+nginx         latest    89da1fb6dcb9   2 days ago          187MB
+hello-world   latest    9c7a54a9a43c   2 months ago        13.3kB
+
+docker ps -a
+docker rm 
+docker rmi

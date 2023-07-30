@@ -1,0 +1,58 @@
+root@ip-172-31-88-243:~# mkdir images
+root@ip-172-31-88-243:~# cd images
+root@ip-172-31-88-243:~/images# ls
+root@ip-172-31-88-243:~/images# wget https://www.tooplate.com/download/2126_antique_cafe
+--2023-07-30 07:14:27--  https://www.tooplate.com/download/2126_antique_cafe
+Resolving www.tooplate.com (www.tooplate.com)... 72.52.176.250
+Connecting to www.tooplate.com (www.tooplate.com)|72.52.176.250|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://www.tooplate.com/zip-templates/2126_antique_cafe.zip [following]
+--2023-07-30 07:14:27--  https://www.tooplate.com/zip-templates/2126_antique_cafe.zip
+Connecting to www.tooplate.com (www.tooplate.com)|72.52.176.250|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2217176 (2.1M) [application/zip]
+Saving to: ‘2126_antique_cafe’
+
+2126_antique_cafe   100%[===================>]   2.11M  5.54MB/s    in 0.4s
+
+2023-07-30 07:14:28 (5.54 MB/s) - ‘2126_antique_cafe’ saved [2217176/2217176]
+
+root@ip-172-31-88-243:~/images# ls
+2126_antique_cafe
+root@ip-172-31-88-243:~/images# mkdir nano
+root@ip-172-31-88-243:~/images# mv 2126_antique_cafe
+mv: missing destination file operand after '2126_antique_cafe'
+Try 'mv --help' for more information.
+
+root@ip-172-31-88-243:~/images# mv 2126_antique_cafe nano
+root@ip-172-31-88-243:~/images# ls
+nano
+
+root@ip-172-31-88-243:~/images# cd nano
+
+root@ip-172-31-88-243:~/images/nano# ls
+2126_antique_cafe
+
+root@ip-172-31-88-243:~/images# sudo apt install unzip
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+unzip is already the newest version (6.0-26ubuntu3.1).
+0 upgraded, 0 newly installed, 0 to remove and 34 not upgraded
+
+root@ip-172-31-88-243:~/images/nano#  mv 2126_antique_cafe 2126_antique_cafe.zip
+root@ip-172-31-88-243:~/images/nano# ls
+2126_antique_cafe.zip
+2126_antique_cafe  2126_antique_cafe.zip  nano
+
+root@ip-172-31-88-243:~/images# ls
+2126_antique_cafe.zip  nano
+root@ip-172-31-88-243:~/images# unzip 2126_antique_cafe.zip
+
+
+root@ip-172-31-88-243:~/images# cd 2126_antique_cafe
+
+root@ip-172-31-88-243:~/images/2126_antique_cafe# ls
+'ABOUT THIS TEMPLATE.txt'   css   img   index.html   js   webfonts
+
+root@ip-172-31-88-243:~/images/2126_antique_cafe# tar czvf nano.tar.gz *
